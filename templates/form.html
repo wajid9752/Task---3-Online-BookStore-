@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="row justify-content-center mt-2">
+    <form action="" method="post" class="col-md-6 p-2 shadow mb-5">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" class="btn btn-outline-dark">
+    </form>
+</div>
+
+
+{% endblock %}

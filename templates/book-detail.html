@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="row justify-content-center mt-2">
+    <div class="col-md-8 p-4 shadow mb-5 bg-white rounded">
+        <h2>{{ book.title }}</h2>
+        <p class="text-muted">by {{ book.author }}</p>
+        <hr>
+        <p>{{ book.description }}</p>
+        <hr>
+        <p><strong>Price:</strong> ${{ book.price }}</p>
+        <p><strong>Genre:</strong> {{ book.genre }}</p>
+        <p><strong>Published Date:</strong> {{ book.published_date }}</p>
+        <a href="{% url 'book-view' %}" class="btn btn-primary mt-5">Back to Books</a>
+    </div>
+</div>
+
+{% endblock %}

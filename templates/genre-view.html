@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+<div class="col-12 mt-2">
+    <a class="btn btn-outline-dark" href="{% url 'genre-create-view' %}" role="button">Create A Genre</a>
+</div>
+</div>
+
+<table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Genre Name</th>
+        <th scope="col">Books</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for genre in genres %}
+        <tr>
+            <td>{{ genre.name }} </td>
+            <td>{{ genre.books.all.count }} </td>
+            <td>
+                <a class="btn btn-outline-dark" href="{% url 'genre-update-view' genre.id %}" role="button">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

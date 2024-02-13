@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="row mt-3 mb-2">
+    <div class="col-12 mt-2">
+        <a class="btn btn-outline-dark" href="{% url 'book-create-view' %}" role="button">Create A Book</a>
+    </div>
+    <div class="col-12 mt-3">
+        <form action="" class="d-flex" method="get">
+            <input type="text" name="query" class="form-control" placeholder="Search by genre , author and title ">
+            <input type="submit" class="btn btn-outline-dark" value="Search">
+        </form>
+    </div>
+</div>
+
+<table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Publish Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td> <a href="{% url 'book-detail' book.id %}" style="text-decoration: none;">{{ book.title }}</a>  </td>
+            <td>{{ book.author }} </td>
+            <td>{{ book.price }} </td>
+            <td>{{ book.genre }} </td>
+            <td>{{ book.published_date }} </td>
+            <td>
+                <a class="btn btn-outline-dark" href="{% url 'book-update-view' book.id %}" role="button">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
